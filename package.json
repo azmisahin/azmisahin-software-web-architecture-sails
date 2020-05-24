@@ -6,7 +6,8 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "prettier --write .",
+    "build": "npm run format"
   },
   "repository": {
     "type": "git",
@@ -39,5 +40,9 @@
   "bugs": {
     "url": "https://github.com/azmisahin/azmisahin-azmisahin-software-web-architecture-sails/issues"
   },
-  "homepage": "https://github.com/azmisahin/azmisahin-azmisahin-software-web-architecture-sails#readme"
+  "homepage": "https://github.com/azmisahin/azmisahin-azmisahin-software-web-architecture-sails#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  }
 }
