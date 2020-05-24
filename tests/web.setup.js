@@ -1,0 +1,3 @@
+/**
+ * Configurate test enviroment
+ */
