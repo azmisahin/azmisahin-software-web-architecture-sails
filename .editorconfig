@@ -7,7 +7,7 @@
 #	IDE EXTENSION
 #	--------------------------------------------------
 #	Visual Studio Code				:	https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
-#	Editor Config Kaynak			:	https://github.com/editorconfig/editorconfig-vscode
+#	Editor Config                   :	https://github.com/editorconfig/editorconfig-vscode
 
 #   It does not apply top level settings.
 root = true
@@ -19,7 +19,7 @@ indent_style = space
 #   Use 2 spaces in the recesses.
 indent_size = 2
 
-#   Tab widths use 3 spaces.
+#   Tab widths use 2 spaces.
 tab_width = 2
 
 #   ASC 10 "\" must be used to move to the next line.
