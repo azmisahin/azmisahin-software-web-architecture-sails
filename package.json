@@ -31,8 +31,8 @@
     "oracle",
     "mssql",
     "sqllite",
-    "db2",
-    "elasticsearch"
+    "continuous-integration",
+    "devops"
   ],
   "author": "azmisahin@outlook.com",
   "license": "CC0-1.0",
