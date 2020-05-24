@@ -7,7 +7,8 @@
   },
   "scripts": {
     "format": "prettier --write .",
-    "build": "npm run format"
+    "lint": "eslint . --fix",
+    "build": "npm run format && npm run lint"
   },
   "repository": {
     "type": "git",
@@ -43,6 +44,7 @@
   "homepage": "https://github.com/azmisahin/azmisahin-azmisahin-software-web-architecture-sails#readme",
   "dependencies": {},
   "devDependencies": {
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "eslint": "^7.1.0"
   }
 }
