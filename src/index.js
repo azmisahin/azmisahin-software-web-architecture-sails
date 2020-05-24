@@ -1,0 +1,4 @@
+/**
+ * Main
+ */
+module.exports = null

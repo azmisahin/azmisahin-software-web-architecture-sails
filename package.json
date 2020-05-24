@@ -9,7 +9,10 @@
     "format": "prettier --write . !coverage",
     "lint": "eslint . --fix",
     "test": "jest --passWithNoTests --detectOpenHandles --collectCoverage",
-    "build": "npm run format && npm run lint && npm run test"
+    "build": "npm run format && npm run lint && npm run test",
+    "start": "node src",
+    "prod": "cross-env NODE_ENV=production npm run start",
+    "dev": "cross-env NODE_ENV=development npm run start"
   },
   "repository": {
     "type": "git",
@@ -43,7 +46,9 @@
     "url": "https://github.com/azmisahin/azmisahin-azmisahin-software-web-architecture-sails/issues"
   },
   "homepage": "https://github.com/azmisahin/azmisahin-azmisahin-software-web-architecture-sails#readme",
-  "dependencies": {},
+  "dependencies": {
+    "cross-env": "^7.0.2"
+  },
   "devDependencies": {
     "eslint": "^7.1.0",
     "jest": "^26.0.1",
