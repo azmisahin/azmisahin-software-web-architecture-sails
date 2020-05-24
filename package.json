@@ -1,0 +1,43 @@
+{
+  "name": "web-architecture-sails",
+  "version": "1.0.0",
+  "description": "Sails.js is a Model-View-Controller web application framework developed in the Node.js environment. It is designed to make it easy to build web applications and APIs.",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azmisahin/azmisahin-azmisahin-software-web-architecture-sails.git"
+  },
+  "keywords": [
+    "sails",
+    "javascript",
+    "web",
+    "framework",
+    "nodejs",
+    "express",
+    "socket.io",
+    "vue.js",
+    "rest",
+    "api",
+    "orm",
+    "mysql",
+    "postgresql",
+    "mongodb",
+    "redis",
+    "oracle",
+    "mssql",
+    "sqllite",
+    "db2",
+    "elasticsearch"
+  ],
+  "author": "azmisahin@outlook.com",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/azmisahin/azmisahin-azmisahin-software-web-architecture-sails/issues"
+  },
+  "homepage": "https://github.com/azmisahin/azmisahin-azmisahin-software-web-architecture-sails#readme"
+}
