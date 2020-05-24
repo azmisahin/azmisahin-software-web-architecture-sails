@@ -6,9 +6,9 @@
     "doc": "docs"
   },
   "scripts": {
-    "format": "prettier --write .",
+    "format": "prettier --write . !coverage",
     "lint": "eslint . --fix",
-    "test": "jest --passWithNoTests --detectOpenHandles",
+    "test": "jest --passWithNoTests --detectOpenHandles --collectCoverage",
     "build": "npm run format && npm run lint && npm run test"
   },
   "repository": {
