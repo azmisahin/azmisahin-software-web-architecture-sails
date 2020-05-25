@@ -60,6 +60,7 @@
     "jest": "^26.0.1",
     "nightwatch": "^1.3.5",
     "prettier": "^2.0.5",
-    "selenium-server": "^3.141.59"
+    "selenium-server": "^3.141.59",
+    "supertest": "^4.0.2"
   }
 }
