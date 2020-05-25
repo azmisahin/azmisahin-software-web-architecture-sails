@@ -1,3 +1,6 @@
+/// Library loaded.
+const Application = require('./application')
+
 /**
  * Web Application
  *
@@ -7,4 +10,10 @@
  *
  * @see https://github.com/azmisahin/azmisahin-azmisahin-software-web-architecture-sailsnpm
  */
-exports = module.exports = null
+var web = (global.web = new Application())
+
+// Start Application
+web.start()
+
+// Module and web app
+exports = module.exports = web

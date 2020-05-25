@@ -24,7 +24,7 @@ module.exports = {
   /**
    * Global patterns that Jest uses to detect test files.
    */
-  testMatch: ['<rootDir>/**/tests/integration/**/*.test.js'],
+  testMatch: ['<rootDir>/**/tests/**/*.spec.js'],
 
   /**
    * If a file matches the specified globe pattern,
@@ -32,7 +32,7 @@ module.exports = {
    * the test is not available for this file
    * and is never required in the test package.
    */
-  collectCoverageFrom: ['src/api/**/*.{ts,js}'],
+  collectCoverageFrom: ['src/**/*.{ts,js}'],
 
   /**
    * List of configuring the test environment
