@@ -13,31 +13,82 @@ loadServices()
  * or through a file or via the --config <path/to/file.js | cjs | mjs | json> option.
  */
 module.exports = {
-  // An array of folders (excluding subfolders) where your tests are located;
-  // if this is not specified, the test source must be passed as the second argument to the test runner.
+  /**
+   * An array of folders (excluding subfolders) where your tests are located;
+   * if this is not specified, the test source must be passed as the second argument to the test runner.
+   */
   src_folders: [process.cwd() + '/tests/e2e/'],
 
-  // Test reports printout
+  /**
+   * Test reports printout
+   */
   output_folder: process.cwd() + '/reports/tests/e2e/',
 
-  // See https://nightwatchjs.org/guide/working-with-page-objects/
+  /**
+   * Page Objects
+   *
+   * @see https://nightwatchjs.org/guide/working-with-page-objects/
+   */
   page_objects_path: '',
 
-  // See https://nightwatchjs.org/guide/extending-nightwatch/#writing-custom-commands
+  /**
+   * Custom commands
+   *
+   * @see  https://nightwatchjs.org/guide/extending-nightwatch/#writing-custom-commands
+   */
   custom_commands_path: '',
 
-  // See https://nightwatchjs.org/guide/extending-nightwatch/#writing-custom-assertions
-  custom_assertions_path: '',
+  /**
+   * Custom Assertions
+   *
+   * @see https://nightwatchjs.org/guide/extending-nightwatch/#writing-custom-assertions
+   */
+  custom_assertions_path: [process.cwd() + '/tests/e2e/custom-assertions'],
 
-  // See https://nightwatchjs.org/guide/#external-globals
+  /**
+   * External globals
+   *
+   * @see https://nightwatchjs.org/guide/#external-globals
+   */
   globals_path: '',
 
+  /**
+   * Paralel Worker
+   *
+   * @see https://nightwatchjs.org/guide/running-tests/#parallel-running
+   */
+
+  /**
+   * WebDriver is a general purpose library for automating web browsers.
+   *
+   * @see https://nightwatchjs.org/gettingstarted/#webdriver-settings
+   */
   webdriver: {},
 
+  /**
+   * Pararlel worker
+   *
+   * @see https://nightwatchjs.org/guide/running-tests/#parallel-running
+   */
+  test_workers: {
+    enabled: true,
+    workers: 'auto',
+  },
+
+  /**
+   * Test Settings
+   */
   test_settings: {
+    /**
+     * Default enviroment
+     *
+     * --env default
+     */
     default: {
       disable_error_log: false,
-      launch_url: 'https://nightwatchjs.org',
+      launch_url: `${require('os').hostname}:${
+        process.env.PORT || process.env.SERVER_PORT || 80
+      }`,
 
       screenshots: {
         enabled: true,
@@ -106,118 +157,21 @@ module.exports = {
       },
     },
 
-    //////////////////////////////////////////////////////////////////////////////////
-    // Configuration for when using the browserstack.com cloud service               |
-    //                                                                               |
-    // Please set the username and access key by setting the environment variables:  |
-    // - BROWSERSTACK_USER                                                           |
-    // - BROWSERSTACK_KEY                                                            |
-    // .env files are supported                                                      |
-    //////////////////////////////////////////////////////////////////////////////////
-    browserstack: {
-      selenium: {
-        host: 'hub-cloud.browserstack.com',
-        port: 443,
-      },
-      // More info on configuring capabilities can be found on:
-      // https://www.browserstack.com/automate/capabilities?tag=selenium-4
-      desiredCapabilities: {
-        'bstack:options': {
-          local: 'false',
-          userName: '${BROWSERSTACK_USER}',
-          accessKey: '${BROWSERSTACK_KEY}',
-        },
-      },
-
-      disable_error_log: true,
-      webdriver: {
-        keep_alive: true,
-        start_process: false,
-      },
-    },
-
-    'browserstack.chrome': {
-      extends: 'browserstack',
-      desiredCapabilities: {
-        browserName: 'chrome',
-        chromeOptions: {
-          // This tells Chromedriver to run using the legacy JSONWire protocol
-          // More info on Chromedriver: https://sites.google.com/a/chromium.org/chromedriver/
-          w3c: false,
-        },
-      },
-    },
-
-    'browserstack.firefox': {
-      extends: 'browserstack',
-      desiredCapabilities: {
-        browserName: 'firefox',
-      },
-    },
-
-    'browserstack.ie': {
-      extends: 'browserstack',
-      desiredCapabilities: {
-        browserName: 'IE',
-        browserVersion: '11.0',
-        'bstack:options': {
-          os: 'Windows',
-          osVersion: '10',
-          local: 'false',
-          seleniumVersion: '3.5.2',
-          resolution: '1366x768',
-        },
-      },
-    },
-
-    //////////////////////////////////////////////////////////////////////////////////
-    // Configuration for when using the Selenium service, either locally or remote,  |
-    //  like Selenium Grid                                                           |
-    //////////////////////////////////////////////////////////////////////////////////
     selenium: {
-      // Selenium Server is running locally and is managed by Nightwatch
-      selenium: {
-        start_process: true,
-        port: 4444,
-        server_path: Services.seleniumServer
-          ? Services.seleniumServer.path
-          : '',
-        cli_args: {
-          'webdriver.gecko.driver': Services.geckodriver
-            ? Services.geckodriver.path
-            : '',
-          'webdriver.chrome.driver': Services.chromedriver
-            ? Services.chromedriver.path
-            : '',
-        },
-      },
-    },
-
-    'selenium.chrome': {
-      extends: 'selenium',
-      desiredCapabilities: {
-        browserName: 'chrome',
-        chromeOptions: {
-          w3c: false,
-        },
-      },
-    },
-
-    'selenium.firefox': {
-      extends: 'selenium',
-      desiredCapabilities: {
-        browserName: 'firefox',
-        'moz:firefoxOptions': {
-          args: [
-            // '-headless',
-            // '-verbose'
-          ],
-        },
+      start_process: true,
+      server_path: require('selenium-server').path,
+      host: '127.0.0.1',
+      port: 4444,
+      cli_args: {
+        'webdriver.chrome.driver': require('chromedriver').path,
       },
     },
   },
 }
 
+/**
+ * Web driver service
+ */
 function loadServices() {
   try {
     Services.seleniumServer = require('selenium-server')

@@ -5,16 +5,18 @@
   "directories": {
     "doc": "docs"
   },
+  "main": "./src",
   "scripts": {
     "format": "prettier --write . !coverage",
     "lint": "eslint . --fix",
     "test": "jest --passWithNoTests --detectOpenHandles --collectCoverage",
+    "coverage": "jest --collectCoverage --passWithNoTests --detectOpenHandles",
     "build": "npm run format && npm run lint && npm run test",
     "start": "node src",
     "prod": "cross-env NODE_ENV=production npm run start",
     "dev": "cross-env NODE_ENV=development npm run start",
-    "test:e2e": "nightwatch",
-    "pretest": "npm run dev && npm run test:e2e"
+    "test:e2e": "nightwatch -e firefox,chrome",
+    "automation": "npm run dev && npm run test:e2e"
   },
   "repository": {
     "type": "git",
