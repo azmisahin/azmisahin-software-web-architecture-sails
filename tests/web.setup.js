@@ -1,3 +1,13 @@
+var { start, stop } = require('./mock')
+
 /**
- * Configurate test enviroment
+ * Starting application
  */
+beforeAll(start)
+
+/**
+ * Closes a removed Sailing application
+ * and allows it to stop listening
+ * or responding to future requests.
+ */
+afterAll(stop)

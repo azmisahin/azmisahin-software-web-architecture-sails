@@ -43,7 +43,7 @@ module.exports = {
    *
    * @see https://nightwatchjs.org/guide/extending-nightwatch/#writing-custom-assertions
    */
-  custom_assertions_path: [process.cwd() + '/tests/e2e/custom-assertions'],
+  custom_assertions_path: '',
 
   /**
    * External globals
@@ -51,12 +51,6 @@ module.exports = {
    * @see https://nightwatchjs.org/guide/#external-globals
    */
   globals_path: '',
-
-  /**
-   * Paralel Worker
-   *
-   * @see https://nightwatchjs.org/guide/running-tests/#parallel-running
-   */
 
   /**
    * WebDriver is a general purpose library for automating web browsers.
@@ -71,7 +65,7 @@ module.exports = {
    * @see https://nightwatchjs.org/guide/running-tests/#parallel-running
    */
   test_workers: {
-    enabled: true,
+    enabled: false,
     workers: 'auto',
   },
 

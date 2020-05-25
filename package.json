@@ -5,18 +5,17 @@
   "directories": {
     "doc": "docs"
   },
-  "main": "./src",
+  "main": "./src/app",
   "scripts": {
     "format": "prettier --write . !coverage",
     "lint": "eslint . --fix",
     "test": "jest --passWithNoTests --detectOpenHandles --collectCoverage",
     "coverage": "jest --collectCoverage --passWithNoTests --detectOpenHandles",
     "build": "npm run format && npm run lint && npm run test",
-    "start": "node src",
+    "start": "node src/app",
     "prod": "cross-env NODE_ENV=production npm run start",
     "dev": "cross-env NODE_ENV=development npm run start",
-    "test:e2e": "nightwatch -e firefox,chrome",
-    "automation": "npm run dev && npm run test:e2e"
+    "test:e2e": "nightwatch"
   },
   "repository": {
     "type": "git",
@@ -51,7 +50,8 @@
   },
   "homepage": "https://github.com/azmisahin/azmisahin-azmisahin-software-web-architecture-sails#readme",
   "dependencies": {
-    "cross-env": "^7.0.2"
+    "cross-env": "^7.0.2",
+    "sails": "^1.2.4"
   },
   "devDependencies": {
     "chromedriver": "^83.0.0",

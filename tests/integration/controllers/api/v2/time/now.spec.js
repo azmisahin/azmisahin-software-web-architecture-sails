@@ -1,4 +1,4 @@
-var service = '/'
+var service = '/api/v2/time'
 /**
  * Application launch tests
  */
@@ -15,6 +15,21 @@ describe(`${service} tests.`, function () {
       .get(service)
       // A succesfull answer is required.
       .expect(200)
+      // Test complated.
+      .end(done)
+  })
+
+  /**
+   * service test for targeted version.
+   */
+  it(`${service} iteration - content json`, function (done) {
+    // Supertest
+    global
+      .request(global.web)
+      // Routing test
+      .get(service)
+      // A succesfull answer is required.
+      .expect('Content-Type', /json/)
       // Test complated.
       .end(done)
   })
