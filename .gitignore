@@ -104,6 +104,8 @@ dist/
 # Temporary folders
 tmp/
 temp/
+.tmp
+.tmp/
 
 # Exclude private files in the project.
 package-lock.json

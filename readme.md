@@ -53,7 +53,7 @@ Sails.js is a Model-View-Controller web application framework developed in the N
 <p align="center">
   <a
     title="Azure Web App"
-    href="http://azmisahin-software-web-architecture-sails.azurewebsites.net/">
+    href="https://azmisahin-software-web-architecture-sails.azurewebsites.net/">
     <img
       alt="Azure Web App"
       src="https://github.com/azmisahin/azmisahin-software-web-architecture-sails/workflows/Build%20and%20deploy%20Node.js%20app%20to%20Azure%20Web%20App%20-%20azmisahin-software-web-architecture-sails/badge.svg">

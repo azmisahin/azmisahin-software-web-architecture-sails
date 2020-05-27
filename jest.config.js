@@ -32,7 +32,7 @@ module.exports = {
    * bu dosya için test mevcut olmasa
    * ve test paketinde asla gerekli olmamasına rağmen kapsama bilgileri toplanır.
    */
-  collectCoverageFrom: ['src/api/**/*.{ts,js}'],
+  collectCoverageFrom: ['./api/**/*.{ts,js}'],
 
   /**
    * Paketteki her test dosyası yürütülmeden önce

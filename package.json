@@ -5,14 +5,14 @@
   "directories": {
     "doc": "docs"
   },
-  "main": "./src/app",
+  "main": "app.js",
   "scripts": {
     "format": "prettier --write . !coverage",
     "lint": "eslint . --fix",
-    "test": "jest --passWithNoTests --detectOpenHandles --collectCoverage",
-    "coverage": "jest --collectCoverage --passWithNoTests --detectOpenHandles",
+    "test": "cross-env NODE_ENV=test jest --passWithNoTests --detectOpenHandles --collectCoverage",
+    "coverage": "cross-env NODE_ENV=test jest --collectCoverage --passWithNoTests --detectOpenHandles",
     "build": "npm run format && npm run lint && npm run test",
-    "start": "node src/app",
+    "start": "node app",
     "prod": "cross-env NODE_ENV=production npm run start",
     "dev": "cross-env NODE_ENV=development npm run start",
     "test:e2e": "nightwatch"
@@ -66,8 +66,17 @@
   },
   "homepage": "https://github.com/azmisahin/azmisahin-azmisahin-software-web-architecture-sails#readme",
   "dependencies": {
+    "@sailshq/connect-redis": "^3.2.1",
+    "@sailshq/lodash": "^3.10.3",
+    "@sailshq/socket.io-redis": "^5.2.0",
+    "connect-mongo": "2.0.3",
     "cross-env": "^7.0.2",
-    "sails": "^1.2.4"
+    "grunt": "1.0.4",
+    "sails": "^1.2.4",
+    "sails-hook-grunt": "^4.0.0",
+    "sails-hook-orm": "^2.1.1",
+    "sails-hook-sockets": "^2.0.0",
+    "sails-mongo": "^1.1.0"
   },
   "devDependencies": {
     "chromedriver": "^83.0.0",

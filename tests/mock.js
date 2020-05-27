@@ -7,11 +7,11 @@ const request = require('supertest')
 /**
  * Working directory
  */
-var path = require('path')
-var pipeName = process.cwd()
+//var path = require('path')
+//var pipeName = process.cwd()
 
-if (path.basename(pipeName) != 'src') pipeName = path.join(pipeName, 'src')
-process.chdir(pipeName)
+//if (path.basename(pipeName) != 'src') pipeName = path.join(pipeName, 'src')
+//process.chdir(pipeName)
 
 /**
  * Lift a Sails app programmatically.
