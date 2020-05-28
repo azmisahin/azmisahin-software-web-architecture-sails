@@ -8,7 +8,10 @@ module.exports = function (req, res) {
   var value = `
   <h1>${name}:${version}<h1>
   <hr />
-  <p><a href="/api">api</a></p>
+  <h2>Version 1</h2>
+  <ul>
+    <li>GET <a href="/api/v1/time">/api/v1/time</a><br/><span>Server date time now</span></li>
+  </ul>  
   `
 
   // The successful answer is transmitted and data is sent.
