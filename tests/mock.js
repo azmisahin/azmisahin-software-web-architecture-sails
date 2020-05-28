@@ -19,9 +19,8 @@ const request = require('supertest')
  * @see https://sailsjs.com/documentation/reference/application/advanced-usage/sails-lift
  */
 var configuration = {
-  log: {
-    level: 'error',
-  },
+  hooks: { grunt: false },
+  log: { level: 'warn' },
 }
 
 /**
@@ -31,9 +30,14 @@ var configuration = {
  */
 module.exports.start = function (done) {
   sails.lift(configuration, (err) => {
+    if (err) {
+      return done(err)
+    }
+
     global.web = sails.hooks.http.app
     global.request = request
-    done(err, sails)
+
+    return done()
   })
 }
 
@@ -42,7 +46,9 @@ module.exports.start = function (done) {
  * and allows it to stop listening
  * or responding to future requests.
  */
-module.exports.stop = sails.lower
+module.exports.stop = function (done) {
+  sails.lower(done)
+}
 
 /**
  * Server Address

@@ -14,6 +14,18 @@ module.exports.session = {
    * adapter version required : "connect-mongo": "2.0.3"
    * adapter version ERROR    : "connect-mongo": "^3.2.0",
    */
-  // adapter: process.env.CONNECTION_STRING == "" ? "" : "connect-mongo",
-  // url: process.env.CONNECTION_STRING,
+  adapter:
+    process.env['CONNECTION_STRING'] === undefined
+      ? undefined
+      : 'connect-mongo',
+
+  /**
+   * Database connection string
+   *
+   * @see https://sailsjs.com/documentation/reference/configuration/sails-config-datastores#?the-connection-url
+   *
+   * CONNECTION_STRING variable will be defined around the "server application" environment.
+   * @see https://docs.microsoft.com/en-us/samples/azure-samples/app-service-web-nodejs-manage/app-service-web-nodejs-manage/
+   */
+  url: process.env['CONNECTION_STRING'] || undefined,
 }
