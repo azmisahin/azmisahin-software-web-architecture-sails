@@ -1,44 +1,51 @@
 /**
- * Jest'in yapılandırması package.json
- * projenizin jest.config.js dosyasında
- * veya bir dosya aracılığıyla
- * veya --config <path/to/file.js|cjs|mjs|json>
- * seçenek aracılığıyla tanımlanabilir.
+ * Jest is a delightful JavaScript Testing Framework
+ * with a focus on simplicity.
+ *
  * @see https://jestjs.io/docs/en/configuration.html
  */
 module.exports = {
   /**
-   * Her test arasındaki sahte çağrıları ve örnekleri otomatik olarak temizler.
+   * Automatically clear mock calls and instances before every test.
    */
   clearMocks: true,
 
   /**
-   * Jest'in kapsama dosyalarını vermesi gereken dizin.
+   * The directory where Jest should output its coverage files.
    */
   coverageDirectory: 'coverage',
 
   /**
-   * Test için kullanılacak test ortamı.
+   * Test environment options that will be passed
+   * to the testEnvironment.
    */
   testEnvironment: 'node',
 
   /**
-   * Jest'in test dosyalarını tespit etmek için kullandığı global kalıpları.
+   * The glob patterns Jest uses to detect test files.
    */
   testMatch: ['<rootDir>/**/tests/**/*.spec.js'],
 
   /**
-   * Bir dosya belirtilen glob paterniyle eşleşirse,
-   * bu dosya için test mevcut olmasa
-   * ve test paketinde asla gerekli olmamasına rağmen kapsama bilgileri toplanır.
+   * An array of glob patterns indicating
+   * a set of files for which coverage information
+   * should be collected
    */
   collectCoverageFrom: ['./api/**/*.{ts,js}'],
 
   /**
-   * Paketteki her test dosyası yürütülmeden önce
-   * test çevçevesini yapılandırma listesi.
+   * A list of paths to modules that run some code to configure
+   * or set up the testing framework before each test file
+   * in the suite is executed.
    *
    * @see https://jestjs.io/docs/en/configuration#setupfilesafterenv-array
    */
   setupFilesAfterEnv: ['./tests/web.setup.js'],
+
+  /**
+   * Default timeout of a test in milliseconds.
+   *
+   * @see https://jestjs.io/docs/en/configuration#testtimeout-number
+   */
+  testTimeout: 10000,
 }
