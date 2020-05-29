@@ -15,7 +15,7 @@ module.exports = {
       unique: true,
       isEmail: true,
       maxLength: 50,
-      example: 'azmisahin@outlook.com',
+      example: 'email@domain.com',
     },
   },
 }
