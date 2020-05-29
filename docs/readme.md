@@ -35,7 +35,7 @@ docker build -t web-architecture-sails .
 ## Docker Run
 
 ```
-docker run -d -p 80:5000 web-architecture-sails
+docker run -d -p 80:80 web-architecture-sails
 ```
 
 ## Deployment environment

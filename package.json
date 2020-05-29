@@ -1,6 +1,6 @@
 {
   "name": "web-architecture-sails",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Sails.js is a Model-View-Controller web application framework developed in the Node.js environment. It is designed to make it easy to build web applications and APIs.",
   "directories": {
     "doc": "docs"
@@ -12,9 +12,10 @@
     "test": "cross-env NODE_ENV=test jest --passWithNoTests --detectOpenHandles --collectCoverage",
     "coverage": "cross-env NODE_ENV=test jest --collectCoverage --passWithNoTests --detectOpenHandles",
     "build": "npm run format && npm run lint && npm run test",
-    "start": "node app",
-    "prod": "cross-env NODE_ENV=production npm run start",
-    "dev": "cross-env NODE_ENV=development npm run start",
+    "lift": "node app",
+    "start": "cross-env NODE_ENV=production npm run lift",
+    "prod": "cross-env NODE_ENV=production npm run lift",
+    "dev": "cross-env NODE_ENV=development npm run lift",
     "test:e2e": "nightwatch"
   },
   "husky": {

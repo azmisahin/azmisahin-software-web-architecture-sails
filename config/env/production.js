@@ -28,7 +28,6 @@ module.exports = {
       ],
     },
   },
-
   sockets: {
     onlyAllowOrigins: [
       'https://azmisahin-software-web-architecture-sails.azurewebsites.net',
@@ -50,4 +49,5 @@ module.exports = {
       'https://azmisahin-software-web-architecture-sails.azurewebsites.net',
     internalEmailAddress: 'azmisahin@outlook.com',
   },
+  port: 80,
 }
