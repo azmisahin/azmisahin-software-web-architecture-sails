@@ -1,17 +1,35 @@
 /**
- * Web Application
+ * Sails MVC framework for Node.js
+ *
+ * @see https://sailsjs.com/
  */
 
 // Change working directory
 process.chdir(__dirname)
 
-// Variable
+/**
+ * Sails Framework
+ */
 var sails
-var rc
+
+/**
+ * Application
+ */
+var app = require('./src/index')
+
+/**
+ * Lift a Sails app programmatically.
+ *
+ * @see https://sailsjs.com/documentation/reference/application/advanced-usage/sails-lift
+ */
+var configuration = {
+  hooks: { grunt: false },
+  log: { level: 'warn' },
+  port: app.port(),
+}
 
 try {
   sails = require('sails')
-  rc = require('sails/accessible/rc')
 } catch (err) {
   // eslint-disable-next-line no-console
   console.error(err.stack)
@@ -19,4 +37,9 @@ try {
 }
 
 // Start server
-sails.lift(rc('sails'))
+sails.lift(configuration, () => {
+  // Application
+  app.start()
+})
+
+module.exports = sails

@@ -1,9 +1,9 @@
-var { start, serverAddress } = require('./mock')
+var { start, ServerUrl } = require('./mock')
 
 /**
  * Server Address
  */
-module.exports.serverAddress = serverAddress()
+module.exports.ServerUrl = ServerUrl()
 
 /**
  * Url address to friendly file name
@@ -46,7 +46,7 @@ after((browser) => {
     var fileName = friendlyUrl(result.value)
 
     // take screenshot
-    var fullPath = `../reports/screens/${fileName}.png`
+    var fullPath = `reports/screens/${fileName}.png`
 
     browser.saveScreenshot(fullPath)
   })

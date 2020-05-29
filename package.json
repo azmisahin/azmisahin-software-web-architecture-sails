@@ -12,9 +12,10 @@
     "test": "cross-env NODE_ENV=test jest --passWithNoTests --detectOpenHandles --collectCoverage",
     "coverage": "cross-env NODE_ENV=test jest --collectCoverage --passWithNoTests --detectOpenHandles",
     "build": "npm run format && npm run lint && npm run test",
-    "start": "node app",
-    "prod": "cross-env NODE_ENV=production npm run start",
-    "dev": "cross-env NODE_ENV=development npm run start",
+    "lift": "node app",
+    "start": "cross-env NODE_ENV=production npm run lift",
+    "prod": "cross-env NODE_ENV=production npm run lift",
+    "dev": "cross-env NODE_ENV=development npm run lift",
     "test:e2e": "nightwatch"
   },
   "husky": {

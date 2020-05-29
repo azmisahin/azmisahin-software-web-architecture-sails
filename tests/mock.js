@@ -3,15 +3,7 @@
  */
 const sails = require('sails')
 const request = require('supertest')
-
-/**
- * Working directory
- */
-//var path = require('path')
-//var pipeName = process.cwd()
-
-//if (path.basename(pipeName) != 'src') pipeName = path.join(pipeName, 'src')
-//process.chdir(pipeName)
+var app = require('../src')
 
 /**
  * Lift a Sails app programmatically.
@@ -21,6 +13,7 @@ const request = require('supertest')
 var configuration = {
   hooks: { grunt: false },
   log: { level: 'warn' },
+  port: app.port(),
 }
 
 /**
@@ -53,9 +46,4 @@ module.exports.stop = function (done) {
 /**
  * Server Address
  */
-module.exports.serverAddress = function () {
-  var os = require('os')
-  var hostName = os.hostname()
-
-  return `http://${hostName}:1337`
-}
+module.exports.ServerUrl = app.ServerUrl

@@ -80,9 +80,7 @@ module.exports = {
      */
     default: {
       disable_error_log: false,
-      launch_url: `${require('os').hostname}:${
-        process.env.PORT || process.env.SERVER_PORT || 80
-      }`,
+      launch_url: Services.app.ServerUrl(),
 
       screenshots: {
         enabled: true,
@@ -183,6 +181,13 @@ function loadServices() {
 
   try {
     Services.geckodriver = require('geckodriver')
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.log('Service failed to load..\n' + err)
+  }
+
+  try {
+    Services.app = require('./src')
   } catch (err) {
     // eslint-disable-next-line no-console
     console.log('Service failed to load..\n' + err)

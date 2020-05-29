@@ -1,6 +1,6 @@
-var { serverAddress } = require('../../../e2e.setup')
+var { ServerUrl } = require('../../../e2e.setup')
 var service = '/'
-var link = serverAddress + service
+var link = ServerUrl + service
 
 /**
  * Application launch tests
