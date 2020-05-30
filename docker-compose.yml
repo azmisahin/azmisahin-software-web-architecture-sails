@@ -1,0 +1,27 @@
+# Compose is a tool for defining and running multi-container Docker applications
+# see https://docs.docker.com/compose/
+
+# see https://docs.docker.com/compose/compose-file/compose-file-v2/
+version: "2"
+
+services:
+  # Web Architecture Application Container
+  web:
+    container_name: service
+    restart: "on-failure"
+    build: .
+    ports:
+      - "80:80"
+    environment:
+      # process.env["CONNECTION_STRING"]
+      CONNECTION_STRING: mongodb://mongo:27017/web-architecture-sails-production
+    depends_on:
+      - "mongo"
+
+  # Mongo Database Server Container
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: "on-failure"
+    ports:
+      - "27017:27017"
