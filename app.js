@@ -37,7 +37,11 @@ try {
 }
 
 // Start server
-sails.lift(configuration, () => {
+sails.lift(configuration, (err) => {
+  // Application Error
+  if (err) {
+    return app.error(err)
+  }
   // Application
   app.start()
 })

@@ -87,13 +87,13 @@ module.exports.ServerUrl = environmentServerUrl
  */
 function welcomeMessage() {
   return `
-    ==================================================
+    ===========================================WELCOME
     Application : ${applicationName}
     Version     : ${applicationVersion}
     Mode        : ${environmentMode()}
     Port        : ${environmentPort()}
     ==================================================
-    Url         : ${environmentServerUrl}
+    Url         : ${environmentServerUrl()}
     ==================================================
     `
 }
@@ -103,9 +103,22 @@ function welcomeMessage() {
  */
 function byeMessage() {
   return `
-    ==================================================
+    ===============================================BYE
     Application : ${applicationName}
     ==================================================
+    `
+}
+
+/**
+ * bye message
+ */
+function errorMessage(err) {
+  return `
+  =============================================ERROR
+  ${err}
+  ==================================================
+  Application : ${applicationName}
+  ==================================================
     `
 }
 
@@ -128,3 +141,8 @@ module.exports.start = () => writeMessage(welcomeMessage())
  * Application Start
  */
 module.exports.stop = () => writeMessage(byeMessage())
+
+/**
+ * Application Start
+ */
+module.exports.error = (err) => writeMessage(errorMessage(err))

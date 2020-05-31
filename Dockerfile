@@ -1,6 +1,6 @@
 FROM node:12
 
-WORKDIR /user/src/service
+WORKDIR /web
 
 COPY package*.json ./
 RUN npm ci --only=production
